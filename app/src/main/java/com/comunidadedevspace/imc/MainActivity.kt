@@ -3,6 +3,7 @@ package com.comunidadedevspace.imc
 import android.adservices.measurement.DeletionRequest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import com.google.android.material.textfield.TextInputEditText
 
@@ -17,12 +18,25 @@ class MainActivity : AppCompatActivity() {
         val edtpeso = findViewById<TextInputEditText>(R.id.edt_peso)
         val edtaltura = findViewById<TextInputEditText>(R.id.edt_altura)
 
-        val btncalcular = findViewById<Button>(R.id.button)
+        val btncalcular = findViewById<Button>(R.id.btn_calcular)
 
-        btncalcular.setOnClickListener{}
-        val peso= edtpeso.text
-        val altura = edtaltura.text
 
-           println("Luiz açao do botao")
+
+
+        btncalcular.setOnClickListener {
+            val peso: Float = edtpeso.text.toString().toFloat()
+            val altura: Float = edtaltura.text.toString().toFloat()
+
+            val alturaQ2 = altura * altura
+            val resultado = peso / alturaQ2
+            println("Luiz ação do botão" + resultado)
+        }
+
+
+
+
+
+
+
     }
 }
