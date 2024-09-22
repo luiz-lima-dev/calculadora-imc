@@ -1,6 +1,7 @@
 package com.comunidadedevspace.imc
 
 import android.adservices.measurement.DeletionRequest
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,24 +14,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Recuperar os componentes EditText
-        // Criar uma variavel e associar o componente de UI <EditText>
-
         val edtpeso = findViewById<TextInputEditText>(R.id.edt_peso)
         val edtaltura = findViewById<TextInputEditText>(R.id.edt_altura)
 
         val btncalcular = findViewById<Button>(R.id.btn_calcular)
 
-
-
         btncalcular.setOnClickListener {
-
 
             val pesoStr: String = edtpeso.text.toString()
             val alturaStr: String = edtaltura.text.toString()
 
             if (pesoStr == "" || alturaStr == "") {
-                // Mostar mensagem para usuario
 
                 Snackbar
                     .make(
@@ -46,8 +40,22 @@ class MainActivity : AppCompatActivity() {
                 val alturaQ2 = altura * altura
                 val resultado = peso / alturaQ2
 
+                //Navegar para proxima tela
+                //criar layout da proxima tela
+                //passar dados (resultado) para proxima tela
+
+                //Intent - classe do proprio android
+
+                val intent = Intent (this,ResultActivity::class.java)
+                intent.putExtra( KEY_RESULT_IMC, resultado)
+                startActivity(intent)
+
+                startActivity(intent)
+
                 println("Luiz ação do botão" + resultado)
             }
+
+
         }
 
 
