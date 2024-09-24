@@ -1,6 +1,7 @@
 package com.comunidadedevspace.imc
 
 import android.R.attr.name
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -24,7 +25,7 @@ class ResultActivity : AppCompatActivity() {
 
         val classificacao: String = if (result <= 18.5f) {
             "MAGREZA"
-        } else if (result > 18.5f && result <= 24.9f) {
+        }    else if (result > 18.5f && result <= 24.9f) {
             "NORMAL"
         } else if (result > 25f && result <= 29.9f) {
             "SOBREPESO"
@@ -35,6 +36,14 @@ class ResultActivity : AppCompatActivity() {
         }
 
         tvClassificacao.text = classificacao
+
+        when (classificacao) {
+            "MAGREZA" -> tvClassificacao.setTextColor(Color.parseColor("#FFA500"))  // Laranja
+            "NORMAL" -> tvClassificacao.setTextColor(Color.parseColor("#00FF00"))   // Verde
+            "SOBREPESO" -> tvClassificacao.setTextColor(Color.parseColor("#FFFF00")) // Amarelo
+             "OBESIDADE" -> tvClassificacao.setTextColor(Color.parseColor("#FF0000")) // Vermelho "OBESIDADE GRAVE" -> tvClassificacao.setTextColor(color.parseColor("#8B0000")) // Vermelho escuro
+
+        }
 
     }
 
