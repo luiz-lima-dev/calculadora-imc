@@ -46,9 +46,6 @@ class MainActivity : AppCompatActivity() {
 
                 startActivity(intent)
 
-                //cores
-                //EditText background + icone
-                // Gradiente + icone + descricao
             }
 
 
